@@ -1,0 +1,36 @@
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+mat-card {
+  width: 500px;
+}
+
+.left-login-image {
+  width: 40vw;
+  z-index: 2;
+}
+
+.right-login {
+  width: 50vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.image{
+  background: #263238;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-form-field{
+  padding: 15px 0px;
+  width: 100%;
+}
+

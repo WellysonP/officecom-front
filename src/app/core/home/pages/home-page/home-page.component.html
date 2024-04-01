@@ -1,0 +1,69 @@
+<mat-toolbar class="custom-toolbar">
+  <div class="company-logo">
+    <img src="assets/images/logo.png" alt="Logo" />
+  </div>
+  <div class="spacer"></div>
+  <button mat-icon-button (click)="logout()">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+
+<div class="bodyPage">
+  <div class="table-container-left">
+    <table mat-table [dataSource]="[user]" class="mat-elevation-z8 small-table">
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef>LOGIN</th>
+        <td mat-cell *matCellDef="let user">{{ user.login }}</td>
+      </ng-container>
+      <ng-container matColumnDef="authorities">
+        <th mat-header-cell *matHeaderCellDef>PERMISSÕES</th>
+        <td mat-cell *matCellDef="let user">
+          {{ getAuthoritiesAsString(user) }}
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <div *ngIf="!user?.authorities">Usuário não possui permissões.</div>
+  </div>
+
+  <div class="table-container-right">
+    <table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
+      <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let user">{{ user.nome }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>Email</th>
+        <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="permissao">
+        <th mat-header-cell *matHeaderCellDef>Permissão</th>
+        <td mat-cell *matCellDef="let user">{{ user.permissao }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Status</th>
+        <td mat-cell *matCellDef="let user">{{ user.status }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef>Ação</th>
+        <td mat-cell *matCellDef="let user">
+          <mat-slide-toggle
+            [(ngModel)]="user.isActivated"
+            (change)="toggleStatus(user)"
+          >
+            {{ user.isActivated ? "Desativar" : "Ativar" }}
+          </mat-slide-toggle>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsTable"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumnsTable"></tr>
+    </table>
+  </div>
+</div>

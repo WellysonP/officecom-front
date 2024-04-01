@@ -1,0 +1,43 @@
+.custom-toolbar {
+  background-color: #263238;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.company-logo img{
+  width: 200px;
+  height: auto;
+}
+
+.table-container-left {
+  padding: 50px;
+  float: left;
+  width: 20%;
+}
+
+.small-table {
+  width: 100%;
+}
+
+.table-container-left table th{
+  color: white;
+  background-color: #263238;
+}
+.table-container-right table th{
+  color: white;
+  background-color: #263238;
+}
+
+.bodyPage{
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-container-right{
+  padding: 50px;
+  float: right;
+  width: 60%;
+
+}
