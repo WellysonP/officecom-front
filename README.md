@@ -29,3 +29,10 @@ Após a instalação das dependências, você pode iniciar a aplicação Angular
 Este comando irá compilar o projeto e iniciar um servidor de desenvolvimento. Após a compilação bem-sucedida, a aplicação estará acessível em http://localhost:4200 no seu navegador.
 
 Certifique-se de que nenhum erro ocorreu durante a compilação e que o servidor está sendo executado corretamente.
+
+## Acessando o sistema
+
+Por padrão, o backend em quarkus disponibiliza um usuário e senha padrão, como administrador, podendo ser acessados por:
+
+- login: admin@officom
+- senha: admin
