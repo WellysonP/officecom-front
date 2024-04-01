@@ -1,27 +1,31 @@
-# OfficecomApp
+# Documentação do Frontend Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
+Este é um guia passo-a-passo para começar a trabalhar com o frontend Angular da aplicação.
 
-## Development server
+## Instalação das Dependências
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Certifique-se de ter o Node.js e o npm instalados no seu sistema antes de prosseguir.
 
-## Code scaffolding
+1. Abra o terminal.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+2. Navegue até o diretório do projeto onde está localizado o frontend Angular.
 
-## Build
+3. Execute o seguinte comando para instalar todas as dependências necessárias:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+  ```bash
+   npm install
+  ```
+Este comando instalará todas as dependências listadas no arquivo package.json no diretório do projeto.
 
-## Running unit tests
+## Inicialização da Aplicação
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Após a instalação das dependências, você pode iniciar a aplicação Angular.
 
-## Running end-to-end tests
+1. No terminal, execute o seguinte comando:
+   
+  ```bash
+   ng serve
+  ```
+Este comando irá compilar o projeto e iniciar um servidor de desenvolvimento. Após a compilação bem-sucedida, a aplicação estará acessível em http://localhost:4200 no seu navegador.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Certifique-se de que nenhum erro ocorreu durante a compilação e que o servidor está sendo executado corretamente.
