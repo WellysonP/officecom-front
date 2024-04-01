@@ -28,7 +28,10 @@
     <div *ngIf="!user?.authorities">Usuário não possui permissões.</div>
   </div>
 
-  <div class="table-container-right">
+  <div
+    class="table-container-right"
+    *ngIf="user && user.authorities && user.authorities.includes('ADMIN')"
+  >
     <table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
       <ng-container matColumnDef="nome">
         <th mat-header-cell *matHeaderCellDef>Nome</th>

@@ -7,35 +7,36 @@ import { UserModel } from 'src/app/shared/models/user-model';
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  styleUrls: ['./home-page.component.scss'],
 })
 export class HomePageComponent implements OnInit {
-
   user: Usuario | undefined;
-  usuarios: UserModel[] = []
+  usuarios: UserModel[] = [];
 
   constructor(
     private authService: AuthenticationService,
     private userSessionService: UserSessionService
-
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.user = this.userSessionService.getUser();
-    this.listarUsuarios()
+    this.listarUsuarios();
+    console.log(this.user);
   }
 
   logout() {
-    this.authService.logout()
+    this.authService.logout();
   }
 
-  displayedColumns: string[] = [
-    "nome", "authorities"
-  ]
+  displayedColumns: string[] = ['nome', 'authorities'];
 
   displayedColumnsTable: string[] = [
-    "nome", "email", "permissao", "status", 'action'
-  ]
+    'nome',
+    'email',
+    'permissao',
+    'status',
+    'action',
+  ];
 
   getAuthoritiesAsString(user: Usuario): string {
     return user.authorities.join(', ');
@@ -44,7 +45,7 @@ export class HomePageComponent implements OnInit {
   listarUsuarios(): void {
     this.userSessionService.listarUsuarios().subscribe((response) => {
       this.usuarios = response.map((user: any) => {
-        let isActivated: boolean = (user.status=="ATIVO")? true : false
+        let isActivated: boolean = user.status == 'ATIVO' ? true : false;
         return {
           id: user.id,
           nome: user.nome,
@@ -56,28 +57,27 @@ export class HomePageComponent implements OnInit {
           isActivated: isActivated,
           permissao: user.permissao,
           createdAt: new Date(user.createdAt),
-          updatedAt: new Date(user.updatedAt)
-        }
-      })
-      console.log(this.usuarios)
+          updatedAt: new Date(user.updatedAt),
+        };
+      });
     });
   }
 
   toggleStatus(user: UserModel) {
-    let newStatus: string = (user.status === 'ATIVO') ? 'INATIVO' : 'ATIVO';
+    let newStatus: string = user.status === 'ATIVO' ? 'INATIVO' : 'ATIVO';
 
-    this.userSessionService.updateStatus(user.id, newStatus)
-      .subscribe((updatedUser: UserModel) => {
-
-        const userToUpdate = this.usuarios.find(u => u.id === updatedUser.id);
+    this.userSessionService.updateStatus(user.id, newStatus).subscribe(
+      (updatedUser: UserModel) => {
+        const userToUpdate = this.usuarios.find((u) => u.id === updatedUser.id);
         if (userToUpdate) {
           userToUpdate.status = updatedUser.status;
         } else {
           console.error('Usuário não encontrado na lista');
         }
-      }, error => {
+      },
+      (error) => {
         console.error('Erro ao atualizar o status do usuário:', error);
-      });
+      }
+    );
   }
-
 }
