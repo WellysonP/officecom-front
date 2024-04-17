@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  officecom-app:
+  front:
     build:
       context: .
       dockerfile: Dockerfile
