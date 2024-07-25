@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: officecom-front
+  labels:
+    app: officecom-front
+spec:
+  selector:
+    matchLabels:
+      app: officecom-front
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: "officecom-front"
+    spec:
+      containers:
+        - name: officecom-front
+          image: "wellysonp/officecom-front:v1"
